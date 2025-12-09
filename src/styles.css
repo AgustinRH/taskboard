@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    background-color: #e9e7e7;
+}
+
+.estilosContenedor {
+    border-radius: 10px;
+    margin: 50px;
+    padding: 50px;
+    background: rgb(252, 57, 8);
+}
+
+.tareaCompletada {
+    background-color: #d888;
+    color: #fff;
+    text-decoration: line-through;
+}
