@@ -11,32 +11,37 @@
       <img alt="Angular Logo"
         src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
     </div>
+
     <div id="columnasFormularioCrear" class="col-sm-8">
       <h2 class="text-center">CREAR TAREA:</h2>
+      @if(!isActiveEdition){
       <form class="form-horizontal">
         <div class="form-group">
           <label for="titulo" class="control-label col-sm-2"> Título </label>
-          <div class="col-sm-10"> <input type="text" id="titulo" placeholder="Introduce título ..."
-              class="form-control">
+          <div class="col-sm-10"> <input type="text" id="titulo" placeholder="Introduce título ..." class="form-control"
+              [(ngModel)]="createTaskForm.title" [ngModelOptions]="{standalone: true}">
           </div>
         </div>
         <div class="form-group">
           <label for="descripcion" class="control-label col-sm-2"> Descripción </label>
           <div class="col-sm-10"> <input type="text" id="descripcion" placeholder="Introduce descripción ..."
-              class="form-control"> </div>
+              class="form-control" [(ngModel)]="createTaskForm.description" [ngModelOptions]="{standalone: true}">
+          </div>
         </div>
         <div class="form-group">
           <div class="col-sm-10 col-sm-offset-2">
-            <input type="submit" value="Guardar" class="btn btn-success">
+            <input type="submit" value="Guardar" class="btn btn-success" (click)="createTask()">
           </div>
         </div>
       </form>
+      }
     </div>
   </div>
   <!-- Div para la fila3 con la tabla de tareas y formulario actualizar tarea -->
   <div id="fila3" class="row">
     <div id="columnasTabla" class="col-sm-8">
       <h2 class="text-center">MOSTRAR TAREAS: </h2>
+      @if(!isActiveEdition){
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -51,31 +56,36 @@
             <td>{{tarea.title}}</td>
             <td>{{tarea.description}}</td>
             <td>
-              <button class="btn btn-success">Editar</button>
-              <button class="btn btn-danger">Borrar</button>
+              <button class="btn btn-success" (click)="editTask(tarea.id)">Editar</button>
+              <button class="btn btn-danger" (click)="deleteTask(tarea.id)">Borrar</button>
             </td>
           </tr>
           }
         </tbody>
       </table>
+      }
     </div>
     <div id="columnasFormularioActualizar" class="col-sm-4">
       <h2 class="text-center">ACTUALIZAR TAREA:</h2>
+      @if(isActiveEdition){
       <form class="form-horizontal">
         <div class="form-group">
           <label for="titulo" class="control-label col-sm-2"> Título </label>
-          <div class="col-sm-10"> <input type="text" id="tituloActualizado" class="form-control"> </div>
+          <div class="col-sm-10"> <input type="text" id="tituloActualizado" class="form-control"
+              [(ngModel)]="createTaskForm.title" [ngModelOptions]="{standalone: true}"> </div>
         </div>
         <div class="form-group">
           <label for="descripcion" class="control-label col-sm-2">Descripción </label>
-          <div class="col-sm-10"> <input type="text" id="descripcionActualizada" class="form-control"> </div>
+          <div class="col-sm-10"> <input type="text" id="descripcionActualizada" class="form-control"
+              [(ngModel)]="createTaskForm.description" [ngModelOptions]="{standalone: true}"> </div>
         </div>
         <div class="form-group">
           <div class="col-sm-10 col-sm-offset-2">
-            <input type="submit" value="Actualizar" class="btn btn-success">
+            <input type="submit" value="Actualizar" class="btn btn-success" (click)="updateTask()">
           </div>
         </div>
       </form>
+      }
     </div>
   </div>
 </div>
