@@ -1,17 +1,21 @@
+<!-- Main Container for the Application -->
 <div id="contenedor" class="container estilosContenedor">
-  <!-- Div para la fila1 con el título -->
+  <!-- Row 1: Header Title -->
   <div id="fila1" class="row">
     <div id="columnasTitulo" class="col-sm-8">
       <h1 class="text-center">TO DO LIST </h1>
     </div>
   </div>
-  <!-- Div para la fila2 con el logo y formulario crear tarea -->
+  <!-- Row 2: Logo and Create Task Form -->
   <div id="fila2" class="row">
+    <!-- Logo Column -->
     <div id="columnasLogo" class="col-sm-4">
       <img alt="Angular Logo"
         src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
     </div>
 
+    <!-- Create Task Form Column 
+         Visible only when NOT in editing mode (!isActiveEdition) -->
     <div id="columnasFormularioCrear" class="col-sm-8">
       <h2 class="text-center">CREAR TAREA:</h2>
       @if(!isActiveEdition){
@@ -37,8 +41,10 @@
       }
     </div>
   </div>
-  <!-- Div para la fila3 con la tabla de tareas y formulario actualizar tarea -->
+  <!-- Row 3: Task List Table and Update Form -->
   <div id="fila3" class="row">
+    <!-- Task List Table Column 
+         Always visible to show the list of tasks. -->
     <div id="columnasTabla" class="col-sm-8">
       <h2 class="text-center">MOSTRAR TAREAS: </h2>
       @if(!isActiveEdition){
@@ -51,12 +57,15 @@
           </tr>
         </thead>
         <tbody>
+          <!-- Iterate over taskList to display each task -->
           @for (tarea of taskList; track tarea) {
           <tr id="{{tarea.id}}">
             <td>{{tarea.title}}</td>
             <td>{{tarea.description}}</td>
             <td>
+              <!-- Edit button passes the task ID to editTask() -->
               <button class="btn btn-success" (click)="editTask(tarea.id)">Editar</button>
+              <!-- Delete button passes the task ID to deleteTask() -->
               <button class="btn btn-danger" (click)="deleteTask(tarea.id)">Borrar</button>
             </td>
           </tr>
@@ -65,6 +74,8 @@
       </table>
       }
     </div>
+    <!-- Update Task Form Column 
+         Visible only when IN editing mode (isActiveEdition) -->
     <div id="columnasFormularioActualizar" class="col-sm-4">
       <h2 class="text-center">ACTUALIZAR TAREA:</h2>
       @if(isActiveEdition){
