@@ -1,59 +1,75 @@
-# Taskboard
+# TaskBoard (To-Do List)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.2.
+Bienvenido a **TaskBoard**, una aplicación de gestión de tareas simple y eficiente construida con **Angular 21** y estilizada con **Bootstrap 5**. Esta aplicación permite a los usuarios crear, leer, actualizar y eliminar tareas (CRUD), persistiendo los datos directamente en el navegador mediante `LocalStorage`.
 
-## Development server
+## 🚀 Características
 
-To start a local development server, run:
+*   **Gestión de Tareas (CRUD)**:
+    *   **Crear**: Añade nuevas tareas con un título y una descripción.
+    *   **Leer**: Visualiza todas tus tareas en una tabla clara y organizada.
+    *   **Actualizar**: Edita la información de cualquier tarea existente.
+    *   **Borrar**: Elimina tareas que ya no necesites.
+*   **Persistencia de Datos**:
+    *   Uso de `LocalStorage` para guardar las tareas. Tus datos permanecen en el navegador incluso si recargas la página o cierras la sesión.
+*   **Interfaz Dinámica**:
+    *   Formularios contextuales que cambian según si estás creando o editando una tarea.
+    *   Diseño responsivo y limpio gracias a Bootstrap.
+*   **Generación Inteligente de IDs**:
+    *   Sistema robusto para asegurar que cada tarea tenga un identificador único, evitando duplicados.
 
-```bash
-ng serve
-```
+## 🛠️ Tecnologías Utilizadas
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Este proyecto utiliza tecnologías modernas de desarrollo web:
 
-## Code scaffolding
+*   **[Angular 21](https://angular.io/)**: Framework principal para la construcción de la aplicación SPA (Single Page Application).
+*   **[TypeScript](https://www.typescriptlang.org/)**: Superset de JavaScript que añade tipado estático, mejorando la calidad y mantenibilidad del código.
+*   **[Bootstrap 5](https://getbootstrap.com/)**: Framework CSS para el diseño de la interfaz de usuario, grid system y componentes responsivos.
+*   **HTML5 & CSS3**: Estructura y estilos base.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 📂 Estructura del Proyecto
 
-```bash
-ng generate component component-name
-```
+Los archivos principales del código fuente se encuentran en `src/app/`:
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+*   **`app.ts`**: Lógica principal del componente, gestión del estado de la aplicación, métodos CRUD y manejo del `LocalStorage`.
+*   **`app.html`**: Plantilla HTML que define la estructura visual, formularios y tablas.
+*   **`models/task.ts`**: Definición de la interfaz `Task` que modela la estructura de datos de una tarea.
 
-```bash
-ng generate --help
-```
+## 🔧 Instalación y Ejecución
 
-## Building
+Sigue estos pasos para probar el proyecto en tu entorno local:
 
-To build the project run:
+### Prerrequisitos
+Asegúrate de tener instalado [Node.js](https://nodejs.org/) y [npm](https://www.npmjs.com/).
 
-```bash
-ng build
-```
+### Pasos
+1.  **Clonar el repositorio** (o descargar los archivos):
+    ```bash
+    git clone <URL_DEL_REPOSITORIO>
+    # O navega a la carpeta del proyecto
+    cd taskboard
+    ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+2.  **Instalar dependencias**:
+    ```bash
+    npm install
+    ```
 
-## Running unit tests
+3.  **Iniciar el servidor de desarrollo**:
+    ```bash
+    ng serve
+    ```
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+4.  **Abrir en el navegador**:
+    Navega a `http://localhost:4200/`. La aplicación se recargará automáticamente si realizas cambios en el código.
+
+## 🧪 Tests
+
+Para ejecutar las pruebas unitarias:
 
 ```bash
 ng test
 ```
 
-## Running end-to-end tests
+## 📄 Licencia
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Este proyecto es de uso libre con fines educativos y de aprendizaje.
